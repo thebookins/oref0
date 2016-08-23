@@ -19,7 +19,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , timestamp: timestamp
         }]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
@@ -28,7 +28,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , start_at: timestamp
         }]
-        , profile
+        , profile: profile
         , prepared: true 
       };
 
@@ -68,7 +68,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , timestamp: timestamp
         }]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
@@ -77,7 +77,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , start_at: timestamp
         }]
-        , profile
+        , profile: profile
         , prepared: true
       };
 
@@ -114,7 +114,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , description: 'TempBasal: 1.0U/hour over 30min'
         }]
-        , profile
+        , profile: profile
         , prepared: true
       };
 
@@ -164,7 +164,7 @@ describe('IOB', function ( ) {
           , {_type: 'TempBasal', rate: 1, date: timestamp, timestamp: timestamp}
           , {_type: 'TempBasalDuration','duration (min)': 30, date: timestamp}
         ]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
@@ -175,7 +175,7 @@ describe('IOB', function ( ) {
           , amount: -1
           , description: "TempBasal: -1.0U/hour over 30min"
         }]
-        , profile
+        , profile: profile
         , prepared: true
       };
 
@@ -219,7 +219,7 @@ describe('IOB', function ( ) {
           {_type: 'TempBasal', temp: 'percent', rate: 2, date: timestamp, timestamp: timestamp},
           {_type: 'TempBasalDuration','duration (min)': 30, date: timestamp}
         ]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
@@ -230,7 +230,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , description: "TempBasal: 200% over 30min"
         }]
-        , profile
+        , profile: profile
         , prepared: true
       };
 
@@ -259,7 +259,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , timestamp: timestamp
         }]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
@@ -268,7 +268,7 @@ describe('IOB', function ( ) {
           , amount: 1
           , start_at: timestamp
         }]
-        , profile
+        , profile: profile
         , prepared: true
       };
 
