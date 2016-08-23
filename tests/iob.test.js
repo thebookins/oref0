@@ -103,7 +103,7 @@ describe('IOB', function ( ) {
           , {_type: 'TempBasal', rate: 2, date: timestamp, timestamp: timestamp}
           , {_type: 'TempBasalDuration','duration (min)': 30, date: timestamp}
         ]
-        , profile
+        , profile: profile
       }
       , inputsPrepared = {
         clock: timestamp
