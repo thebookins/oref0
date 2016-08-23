@@ -19,19 +19,33 @@
 */
 
 var generate = require('oref0/lib/iob');
-function usage ( ) {
-    console.log('usage: ', process.argv.slice(0, 2), '<pumphistory.json> <profile.json> <clock.json>');
-
-}
 
 if (!module.parent) {
-  var pumphistory_input = process.argv.slice(2, 3).pop();
+  var argv = require('yargs')
+    .usage("$0 pumphistory.json profile.json clock.json [--prepared]")
+    .option('prepared', {
+      alias: 'p',
+      describe: "Pump history prepared using mmhistorytools",
+      default: false
+    })
+    // error and show help if some other args given
+    .strict(true)
+    .help('help')
+  ;
+  function usage ( ) {
+    argv.showHelp( );
+  }
+
+  var params = argv.argv;
+  
+  var pumphistory_input = params._.slice(0, 1).pop();
   if ([null, '--help', '-h', 'help'].indexOf(pumphistory_input) > 0) {
     usage( );
     process.exit(0)
   }
-  var profile_input = process.argv.slice(3, 4).pop();
-  var clock_input = process.argv.slice(4, 5).pop();
+  var profile_input = params._.slice(1, 2).pop();
+  var clock_input = params._.slice(2, 3).pop();
+  
 
   if (!pumphistory_input || !profile_input) {
     usage( );
@@ -49,9 +63,9 @@ if (!module.parent) {
     history: all_data
   , profile: profile_data
   , clock: clock_data
+  , prepared: params.prepared
   };
 
   var iob = generate(inputs);
   console.log(JSON.stringify(iob));
 }
-
