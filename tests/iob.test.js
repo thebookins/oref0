@@ -213,34 +213,19 @@ describe('IOB', function ( ) {
       , timestamp = new Date(now).toISOString()
       , timestampEarly = new Date(now - (60 * 60 * 1000)).toISOString()
       , profile = {dia: 3,current_basal: 1, bolussnooze_dia_divisor: 2}
-      , inputsDefault = {
+      , inputs = {
         clock: timestamp
         , history: [
           {_type: 'TempBasal', temp: 'percent', rate: 2, date: timestamp, timestamp: timestamp},
           {_type: 'TempBasalDuration','duration (min)': 30, date: timestamp}
         ]
         , profile: profile
-      }
-      , inputsPrepared = {
-        clock: timestamp
-        , history: [{
-          type: 'TempBasal'
-          , start_at: timestampEarly
-          , end_at: timestamp
-          , amount: 1
-          , description: "TempBasal: 200% over 30min"
-        }]
-        , profile: profile
-        , prepared: true
       };
 
-
-    [inputsDefault, inputsPrepared].forEach(function(inputs) {    
-      var hourLaterInputs = inputs;
-      hourLaterInputs.clock = new Date(now + (60 * 60 * 1000)).toISOString();
-      var hourLater = require('../lib/iob')(hourLaterInputs)[0];    
-      hourLater.iob.should.equal(0);
-    });
+    var hourLaterInputs = inputs;
+    hourLaterInputs.clock = new Date(now + (60 * 60 * 1000)).toISOString();
+    var hourLater = require('../lib/iob')(hourLaterInputs)[0];    
+    hourLater.iob.should.equal(0);
   });
 
 
