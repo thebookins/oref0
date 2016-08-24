@@ -26,25 +26,24 @@ if (!module.parent) {
     .option('prepared', {
       alias: 'p',
       describe: "Pump history prepared using mmhistorytools",
-      default: false
+      boolean: true
     })
     // error and show help if some other args given
     .strict(true)
     .help('help')
+    .argv
   ;
   function usage ( ) {
     argv.showHelp( );
   }
 
-  var params = argv.argv;
-  
-  var pumphistory_input = params._.slice(0, 1).pop();
+  var pumphistory_input = argv._.slice(0, 1).pop();
   if ([null, '--help', '-h', 'help'].indexOf(pumphistory_input) > 0) {
     usage( );
     process.exit(0)
   }
-  var profile_input = params._.slice(1, 2).pop();
-  var clock_input = params._.slice(2, 3).pop();
+  var profile_input = argv._.slice(1, 2).pop();
+  var clock_input = argv._.slice(2, 3).pop();
   
 
   if (!pumphistory_input || !profile_input) {
@@ -63,7 +62,7 @@ if (!module.parent) {
     history: all_data
   , profile: profile_data
   , clock: clock_data
-  , prepared: params.prepared
+  , prepared: argv.prepared
   };
 
   var iob = generate(inputs);
