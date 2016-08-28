@@ -7,7 +7,7 @@ The intention is to run these experiments against branches with differences in t
 The scripts are not written to run fully automatically.
 
 ### Description
-The script experiment.js steps through the 12-hour period of `pump-history.json` in 1 second increments and calculates the iob that oref0 would have determined at that point in time. The results are output in a json file for later plotting.
+The script `experiment.js` steps through the 12-hour period of `pump-history.json` in 1 second increments and calculates the iob that oref0 would have determined at that point in time. The results are output in a json file for later plotting.
 
 (The 1 second increment may be excessive, but 5 minute increments are too coarse to resolve the real basal periods.)
 
