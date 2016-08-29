@@ -48,7 +48,6 @@ for (var i=12*60*60; i>=0; i--) {
   var iob = generate_iob(inputs)[0];
   
   data.push({
-    t,
     iob: iob.iob,
     basaliob: iob.basaliob,
     t: t.toLocaleTimeString(),
