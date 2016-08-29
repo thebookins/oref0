@@ -24,7 +24,8 @@ def main():
   ax2 = plt.subplot(212, sharex=ax1)
   ax2.set_ylabel('basal rate (U/hr)')
   
-  starttime = datetime.strptime(data_original[0]["t"], '%I:%M:%S %p')
+  # starttime = datetime.strptime(data_original[0]["t"], '%I:%M:%S %p')
+  starttime = datetime(1900, 1, 1, 18, 0)
   
   t = []
   iob_original = []
