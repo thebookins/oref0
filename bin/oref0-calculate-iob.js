@@ -18,8 +18,6 @@
 
 */
 
-var generate = require('oref0/lib/iob');
-
 if (!module.parent) {
   var argv = require('yargs')
     .usage("$0 pumphistory.json profile.json clock.json [--prepared]")
@@ -55,6 +53,7 @@ if (!module.parent) {
   var all_data = require(cwd + '/' + pumphistory_input);
   var profile_data = require(cwd + '/' + profile_input);
   var clock_data = require(cwd + '/' + clock_input);
+  var generate = (argv.prepared) ? require('oref0/lib/iob-prepared') : require('oref0/lib/iob');
 
   // all_data.sort(function (a, b) { return a.date > b.date });
 
@@ -62,7 +61,6 @@ if (!module.parent) {
     history: all_data
   , profile: profile_data
   , clock: clock_data
-  , prepared: argv.prepared
   };
 
   var iob = generate(inputs);
