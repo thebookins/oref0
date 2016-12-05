@@ -20,7 +20,7 @@
 
 if (!module.parent) {
   var argv = require('yargs')
-    .usage("$0 pumphistory.json profile.json clock.json [--prepared]")
+    .usage("$0 pumphistory-zoned.json profile.json clock-zoned.json [--prepared]")
     .option('prepared', {
       alias: 'p',
       describe: "Pump history prepared using mmhistorytools",
