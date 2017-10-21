@@ -112,7 +112,7 @@ if (!module.parent) {
     else if (requestedtemp.duration < 1) {
         reqtempstring = "Cancel";
     } else { 
-        reqtempstring = requestedtemp.duration + "m@" + requestedtemp.rate.toFixed(1) + "U";
+        reqtempstring = requestedtemp.duration + "m@" + requestedtemp.rate.toFixed(1);
     }
     var enactedtemp = require(cwd + '/' + enactedtemp_input);
     if (enactedtemp.duration < 1) {
@@ -143,7 +143,8 @@ if (!module.parent) {
 
     var pebble = {        
         "content" : "" + bgnow + requestedtemp.tick + " " + bgTime + "\n"
-        + iob + "U->" + requestedtemp.eventualBG + "-" + requestedtemp.snoozeBG + "\n"
+        //+ iob + "U->" + requestedtemp.eventualBG + "-" + requestedtemp.snoozeBG + "\n"
+        + iob + "U->" + requestedtemp.eventualBG + "\n"
         //+ "Act: " + enactedstring
         //+ " at " + enactedat + "\n"
         + tempstring
